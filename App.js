@@ -1,11 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React from 'react';
 import {
   SafeAreaView,
@@ -16,16 +8,14 @@ import {
   StatusBar,
 } from 'react-native';
 
-import {
-
-  Colors
-
-} from 'react-native/Libraries/NewAppScreen';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
+import ItemsNavigator from './android/app/src/navigation/ItemsNavigator'
 
 const App = () => {
   return (
     <>
-      <StatusBar barStyle="dark-content" />
+    <ItemsNavigator/>
+      {/* <StatusBar barStyle="dark-content" />
       <SafeAreaView>
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
@@ -34,7 +24,7 @@ const App = () => {
             <Text>asd</Text>
           </View>
         </ScrollView>
-      </SafeAreaView>
+      </SafeAreaView> */}
     </>
   );
 };

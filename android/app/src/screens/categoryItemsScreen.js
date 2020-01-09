@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const CategorYItemScreen = (props) => {
+const CategoryItemScreen = (props) => {
 	return (
 		<View style={style.Screen}>
 			<Text>Category Screen</Text>
@@ -16,4 +16,4 @@ const style = StyleSheet.create({
 		alignItems: 'center'
 	}
 });
-export default CategorYItemScreen;
+export default CategoryItemScreen;
