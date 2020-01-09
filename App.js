@@ -8,7 +8,10 @@ import {
   StatusBar,
 } from 'react-native';
 
-import ItemsNavigator from './android/app/src/navigation/ItemsNavigator'
+import ItemsNavigator from './android/app/src/navigation/ItemsNavigator';
+import {useScreens} from 'react-native-screens'
+
+useScreens()
 
 const App = () => {
   return (

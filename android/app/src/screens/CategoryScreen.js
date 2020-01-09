@@ -27,16 +27,6 @@ const CategoryScreen = (props) => {
 	return <FlatList data={CATEGORIES} numColumns={2} renderItem={renderGridItem} />;
 };
 
-CategoryScreen.navigationOptions = {
-	headerTitle: 'گروه ها',
-	headerStyle: {
-		backgroundColor: '#4a148c'
-	},
-	headerTintColor: '#fff',
-	headerTitleStyle: {
-		fontWeight: 'bold'
-	}
-};
 const styles = StyleSheet.create({
 	Screen: {
 		flex: 1,

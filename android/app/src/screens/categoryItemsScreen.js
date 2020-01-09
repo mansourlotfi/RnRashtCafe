@@ -22,14 +22,7 @@ CategoryItemScreen.navigationOptions = (navigationData) => {
 	const catId = navigationData.navigation.getParam('categoryId');
 	const selectedCategory = CATEGORIES.find((cat) => cat.id === catId);
 	return {
-		headerTitle: selectedCategory.title,
-		headerStyle: {
-			backgroundColor: '#4a148c'
-		},
-		headerTintColor: '#fff',
-		headerTitleStyle: {
-			fontWeight: 'bold'
-		}
+		headerTitle: selectedCategory.title
 	};
 };
 const style = StyleSheet.create({
