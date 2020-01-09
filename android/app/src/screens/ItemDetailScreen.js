@@ -4,7 +4,7 @@ import { View, Text, StyleSheet } from 'react-native';
 const ItemDetailScreen = (props) => {
 	return (
 		<View style={style.Screen}>
-			<Text>Category Screen</Text>
+			<Text>item detail screen Screen</Text>
 		</View>
 	);
 };
