@@ -6,7 +6,7 @@ import ItemDetailScreen from '../screens/ItemDetailScreen';
 
 const ItemsNavigator = createStackNavigator({
 	Category: CategoryScreen,
-	CategoryItem: {
+	CategoryItems: {
 		screen: CategoryItemScreen
 	},
 	ItemDetail: ItemDetailScreen

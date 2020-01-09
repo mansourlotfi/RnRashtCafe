@@ -1,21 +1,42 @@
 import React from 'react';
-import { View, Text, Button, FlatList, StyleSheet } from 'react-native';
+import { View, Text, Button, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
 import axios from 'axios';
 import { CATEGORIES } from '../data/dummy-data';
 
-const renderGridItem = (itemData) => {
-	return (
-		<View style={styles.gridItems}>
-			<Text>{itemData.item.title}</Text>
-		</View>
-	);
-};
-
 const CategoryScreen = (props) => {
-	console.log(props);
+	const renderGridItem = (itemData) => {
+		return (
+			<TouchableOpacity
+				style={styles.gridItems}
+				onPress={() => {
+					props.navigation.navigate({
+						routeName: 'CategoryItems',
+						params: {
+							categoryId: itemData.item.id
+						}
+					});
+				}}
+			>
+				<View>
+					<Text>{itemData.item.title}</Text>
+				</View>
+			</TouchableOpacity>
+		);
+	};
+
 	return <FlatList data={CATEGORIES} numColumns={2} renderItem={renderGridItem} />;
 };
 
+CategoryScreen.navigationOptions = {
+	headerTitle: 'گروه ها',
+	headerStyle: {
+		backgroundColor: '#4a148c'
+	},
+	headerTintColor: '#fff',
+	headerTitleStyle: {
+		fontWeight: 'bold'
+	}
+};
 const styles = StyleSheet.create({
 	Screen: {
 		flex: 1,
