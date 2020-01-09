@@ -15,16 +15,6 @@ const App = () => {
   return (
     <>
     <ItemsNavigator/>
-      {/* <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <View>
-            <Text>asd</Text>
-          </View>
-        </ScrollView>
-      </SafeAreaView> */}
     </>
   );
 };
