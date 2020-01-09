@@ -1,14 +1,16 @@
 import React from 'react';
-import { View, Text, Button, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
+import { FlatList, StyleSheet } from 'react-native';
+import CategoriGridTile from '../components/CategoryGridTile';
 import axios from 'axios';
 import { CATEGORIES } from '../data/dummy-data';
 
 const CategoryScreen = (props) => {
 	const renderGridItem = (itemData) => {
 		return (
-			<TouchableOpacity
-				style={styles.gridItems}
-				onPress={() => {
+			<CategoriGridTile
+				title={itemData.item.title}
+				color={itemData.item.color}
+				onSelect={() => {
 					props.navigation.navigate({
 						routeName: 'CategoryItems',
 						params: {
@@ -16,11 +18,7 @@ const CategoryScreen = (props) => {
 						}
 					});
 				}}
-			>
-				<View>
-					<Text>{itemData.item.title}</Text>
-				</View>
-			</TouchableOpacity>
+			/>
 		);
 	};
 
