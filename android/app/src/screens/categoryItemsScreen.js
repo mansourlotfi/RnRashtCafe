@@ -11,7 +11,14 @@ const CategoryItemScreen = (props) => {
 				description={itemData.item.description}
 				address={itemData.item.address}
 				imageUrl={itemData.item.imageUrl}
-				onSelect={() => {}}
+				onSelect={() => {
+					props.navigation.navigate({
+						routeName: 'ItemDetail',
+						params: {
+							detailId: itemData.item.id
+						}
+					});
+				}}
 			/>
 		);
 	};
