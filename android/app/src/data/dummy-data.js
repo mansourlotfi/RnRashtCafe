@@ -26,5 +26,17 @@ export const DETAILS = [
 		true,
 		true,
 		true
+	),
+	new detail(
+		'm1',
+		[ 'c1', 'c2' ],
+		'برنامه ریزی اموزشی',
+		'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg/800px-Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg',
+		'asd asd asd asd',
+		'asd asd asdasdas ave asd',
+		'989898',
+		true,
+		true,
+		true
 	)
 ];

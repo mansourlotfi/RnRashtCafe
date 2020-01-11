@@ -1,20 +1,25 @@
 import React from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
 import { CATEGORIES, DETAILS } from '../data/dummy-data';
+import CategoryItem from '../components/CategoryItem';
 
 const CategoryItemScreen = (props) => {
 	const renderCategoryItems = (itemData) => {
 		return (
-			<View>
-				<Text>{itemData.item.title}</Text>
-			</View>
+			<CategoryItem
+				title={itemData.item.title}
+				description={itemData.item.description}
+				address={itemData.item.address}
+				imageUrl={itemData.item.imageUrl}
+				onSelect={() => {}}
+			/>
 		);
 	};
 	const catId = props.navigation.getParam('categoryId');
 	const displayedDetail = DETAILS.filter((item) => item.categoryId.indexOf(catId) >= 0);
 	return (
 		<View style={style.Screen}>
-			<FlatList data={displayedDetail} renderItem={renderCategoryItems} />
+			<FlatList data={displayedDetail} renderItem={renderCategoryItems} style={{ width: '100%' }} />
 		</View>
 	);
 };
