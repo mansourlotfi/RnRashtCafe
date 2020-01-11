@@ -1,19 +1,20 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
-import { CATEGORIES } from '../data/dummy-data';
+import { View, Text, FlatList, StyleSheet } from 'react-native';
+import { CATEGORIES, DETAILS } from '../data/dummy-data';
 
 const CategoryItemScreen = (props) => {
+	const renderCategoryItems = (itemData) => {
+		return (
+			<View>
+				<Text>{itemData.item.title}</Text>
+			</View>
+		);
+	};
 	const catId = props.navigation.getParam('categoryId');
-	const selectedCategory = CATEGORIES.find((cat) => cat.id === catId);
+	const displayedDetail = DETAILS.filter((item) => item.categoryId.indexOf(catId) >= 0);
 	return (
 		<View style={style.Screen}>
-			<Text>Category item Screen</Text>
-			<Button
-				title="go to item detail"
-				onPress={() => {
-					props.navigation.navigate({ routeName: 'ItemDetail' });
-				}}
-			/>
+			<FlatList data={displayedDetail} renderItem={renderCategoryItems} />
 		</View>
 	);
 };
