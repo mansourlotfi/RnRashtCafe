@@ -9,6 +9,10 @@ const FiltersScreen = (props) => {
 	);
 };
 
+FiltersScreen.navigationOptions = {
+	headerTitle: 'فیلترها'
+};
+
 const style = StyleSheet.create({
 	Screen: {
 		flex: 1,

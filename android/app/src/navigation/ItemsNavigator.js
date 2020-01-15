@@ -2,11 +2,13 @@ import React from 'react';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
+import { createDrawerNavigator } from 'react-navigation-drawer';
 import { Button, Icon, ThemeProvider } from 'react-native-elements';
 import CategoryScreen from '../screens/CategoryScreen';
 import CategoryItemScreen from '../screens/categoryItemsScreen';
 import ItemDetailScreen from '../screens/ItemDetailScreen';
 import UserInputScreen from '../screens/userInpuScreen';
+import FilterScreen from '../screens/FiltersScreen';
 
 const ItemsNavigator = createStackNavigator(
 	{
@@ -70,4 +72,19 @@ const TabNavigator = createBottomTabNavigator(
 	}
 );
 
-export default createAppContainer(TabNavigator);
+const FilterNavigator = createStackNavigator({
+	filters: FilterScreen
+});
+
+const MainNavigator = createDrawerNavigator(
+	{
+		خانه: TabNavigator,
+		فیلتر: FilterNavigator
+	},
+	{
+		contentOptions: {
+			activeTintColor: 'blue'
+		}
+	}
+);
+export default createAppContainer(MainNavigator);
