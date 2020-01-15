@@ -73,13 +73,47 @@ const TabNavigator = createBottomTabNavigator(
 );
 
 const FilterNavigator = createStackNavigator({
-	filters: FilterScreen
+	filters: {
+		screen: FilterScreen,
+		navigationOptions: {
+			headerTitle: 'فیلتر ها',
+			headerStyle: {
+				backgroundColor: '#4a148c'
+			},
+			headerTintColor: '#fff',
+			headerTitleStyle: {
+				fontWeight: 'bold'
+			}
+		}
+	}
 });
 
 const MainNavigator = createDrawerNavigator(
 	{
-		خانه: TabNavigator,
-		فیلتر: FilterNavigator
+		خانه: {
+			screen: TabNavigator,
+			navigationOptions: {
+				headerStyle: {
+					backgroundColor: '#4a148c'
+				},
+				headerTintColor: '#fff',
+				headerTitleStyle: {
+					fontWeight: 'bold'
+				}
+			}
+		},
+		فیلتر: {
+			screen: FilterNavigator,
+			navigationOptions: {
+				headerStyle: {
+					backgroundColor: '#4a148c'
+				},
+				headerTintColor: '#fff',
+				headerTitleStyle: {
+					fontWeight: 'bold'
+				}
+			}
+		}
 	},
 	{
 		contentOptions: {
