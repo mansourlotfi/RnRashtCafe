@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button, FlatList, StyleSheet, TouchableNativeFeedback } from 'react-native';
+import { View, Text, StyleSheet, TouchableNativeFeedback } from 'react-native';
 
 const CategoriGridTile = (props) => {
 	return (

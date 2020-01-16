@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { DETAILS } from '../data/dummy-data';
+import { useSelector } from 'react-redux';
 
 const ItemDetailScreen = (props) => {
-	const detailId = props.navigation.getParam('detailId');
-	const selectedDetail = DETAILS.find((item) => item.id === detailId);
+	const availableDetails = useSelector((state) => state.places.places);
+	const detaileId = props.navigation.getParam('detaileId');
+	const selectedDetail = availableDetails.find((item) => item.id === detaileId);
+
+	// useEffect(
+	// 	() => {
+	// 		props.navigation.setParams({ detailTitle: selectedDetail.title });
+	// 	},
+	// 	[ selectedDetail ]
+	// );
 	return (
 		<View style={style.Screen}>
 			<Text>{selectedDetail.title}</Text>
@@ -13,10 +21,11 @@ const ItemDetailScreen = (props) => {
 };
 
 ItemDetailScreen.navigationOptions = (navigationData) => {
-	const detailId = navigationData.navigation.getParam('detailId');
-	const selectedDetail = DETAILS.find((item) => item.id === detailId);
+	const detailId = navigationData.navigation.getParam('detaileId');
+	const detaileTitle = navigationData.navigation.getParam('detaileTitle');
+	//const selectedDetail = DETAILS.find((item) => item.id === detailId);
 	return {
-		headerTitle: selectedDetail.title
+		headerTitle: detaileTitle
 	};
 };
 const style = StyleSheet.create({

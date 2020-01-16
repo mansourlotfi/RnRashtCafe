@@ -3,8 +3,6 @@ import { FlatList, StyleSheet } from 'react-native';
 import CategoriGridTile from '../components/CategoryGridTile';
 import { HeaderButtons, HeaderButton, Item } from 'react-navigation-header-buttons';
 import Icon from 'react-native-vector-icons/Ionicons';
-
-import axios from 'axios';
 import { CATEGORIES } from '../data/dummy-data';
 
 const CategoryScreen = (props) => {

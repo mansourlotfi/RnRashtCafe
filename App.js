@@ -1,13 +1,24 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-
+import { createStore, combineReducers } from 'redux';
+import { Provider } from 'react-redux';
+import placeReducer from './android/app/src/store/reducers/places';
 import ItemsNavigator from './android/app/src/navigation/ItemsNavigator';
-import { useScreens } from 'react-native-screens';
+import { enableScreens } from 'react-native-screens';
 
-useScreens();
+enableScreens();
+
+const rootReducer = combineReducers({
+	places: placeReducer
+});
+const store = createStore(rootReducer);
 
 const App = () => {
-	return <ItemsNavigator />;
+	return (
+		<Provider store={store}>
+			<ItemsNavigator />
+		</Provider>
+	);
 };
 
 const styles = StyleSheet.create({

@@ -1,6 +1,7 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
-import { CATEGORIES, DETAILS } from '../data/dummy-data';
+import { CATEGORIES } from '../data/dummy-data';
 import CategoryItem from '../components/CategoryItem';
 
 const CategoryItemScreen = (props) => {
@@ -15,7 +16,8 @@ const CategoryItemScreen = (props) => {
 					props.navigation.navigate({
 						routeName: 'ItemDetail',
 						params: {
-							detailId: itemData.item.id
+							detaileId: itemData.item.id,
+							detaileTitle: itemData.item.title
 						}
 					});
 				}}
@@ -23,7 +25,8 @@ const CategoryItemScreen = (props) => {
 		);
 	};
 	const catId = props.navigation.getParam('categoryId');
-	const displayedDetail = DETAILS.filter((item) => item.categoryId.indexOf(catId) >= 0);
+	const availableDetail = useSelector((state) => state.places.places);
+	const displayedDetail = availableDetail.filter((item) => item.categoryId.indexOf(catId) >= 0);
 	return (
 		<View style={style.Screen}>
 			<FlatList data={displayedDetail} renderItem={renderCategoryItems} style={{ width: '100%' }} />
