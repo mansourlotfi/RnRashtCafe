@@ -5,6 +5,8 @@ import * as placesActions from '../store/actions/places';
 
 const CategoryItem = (props) => {
 	const places = useSelector((state) => state.places.places);
+	console.log(places, 'places in categoryitem');
+
 	const dispatch = useDispatch();
 
 	useEffect(
@@ -22,7 +24,9 @@ const CategoryItem = (props) => {
 						<View style={styles.row}>
 							<ImageBackground source={{ uri: props.imageUrl }} style={styles.bgImage}>
 								<Text style={styles.title} numberOfLines={1}>
-									{props.title}
+									{/* {props.title} */}
+									{places.map((place) => <Text key={place.id}>{place.title}</Text>)}
+									}
 								</Text>
 							</ImageBackground>
 							<Text>{props.description}</Text>

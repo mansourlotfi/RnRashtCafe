@@ -8,7 +8,7 @@ export const fetchPlaces = () => {
 		const response = await fetch('https://rashtcafe.liara.run/api/places/c1');
 
 		const resData = await response.json();
-		console.log(resData);
+		console.log('resdata in places action', resData);
 		const loadedPlaces = [];
 
 		for (const key in resData) {
