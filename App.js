@@ -1,7 +1,8 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+import ReduxThunk from 'redux-thunk';
 import placeReducer from './android/app/src/store/reducers/places';
 import ItemsNavigator from './android/app/src/navigation/ItemsNavigator';
 import { enableScreens } from 'react-native-screens';
@@ -11,7 +12,7 @@ enableScreens();
 const rootReducer = combineReducers({
 	places: placeReducer
 });
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
 
 const App = () => {
 	return (

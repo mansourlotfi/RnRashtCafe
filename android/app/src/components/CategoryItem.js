@@ -1,7 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, Text, ImageBackground, StyleSheet, TouchableNativeFeedback } from 'react-native';
+import { useSelector, useDispatch } from 'react-redux';
+import * as placesActions from '../store/actions/places';
 
 const CategoryItem = (props) => {
+	const places = useSelector((state) => state.places.places);
+	const dispatch = useDispatch();
+
+	useEffect(
+		() => {
+			dispatch(placesActions.fetchPlaces());
+		},
+		[ dispatch ]
+	);
+
 	return (
 		<View style={styles.detailscreen}>
 			<TouchableNativeFeedback onPress={props.onSelect}>
